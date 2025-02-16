@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  json-generator:
+    build: .
+    volumes:
+      - episode_inventory_better:/data  # Input media files
+      - ../python/data:/output  # Output directory for JSON
+    environment:
+      - SERIES_NAME=${SERIES_NAME}
+
+volumes:
+  episode_inventory_better:
+    external: true
